@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataBase.Entities
 {
-   
-    public class Category
+    public class Product
     {
         [Key]
         public int Id { get; set; }
@@ -18,10 +17,10 @@ namespace DataBase.Entities
         public DateTime RegistrationDate { get; set; }
 
         public string Name { get; set; }
-        public int Order { get; set; }
+        public int Price { get; set; }
 
-        #region one to many
-        public List<Product> Products { get; set; }
+        #region many to one
+        public Category Category { get; set; }
         #endregion
     }
 }

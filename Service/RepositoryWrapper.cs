@@ -13,6 +13,7 @@ namespace Service
     {
         private readonly ApplicationContext _applicationCotext;
         private ICategoryRepository _categoryRepository;
+        private IProductRepository _productRepository;
 
         public RepositoryWrapper(ApplicationContext applicationCotext)
         {
@@ -31,6 +32,21 @@ namespace Service
                 return _categoryRepository;
             }
         }
+
+        public IProductRepository Product
+        {
+            get
+            {
+                if (_productRepository == null)
+                {
+                    _productRepository = new ProductRepository(_applicationCotext);
+                }
+
+                return _productRepository;
+            }
+        }
+
+   
 
         public void Save()
         {
