@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Api.Models.Category
+namespace Api.Models.Product
 {
-    public class CategorySelectViewModel
+    public class ProductSelectViewModel
     {
-        [JsonPropertyName("Id")]
+        [JsonPropertyName("Precio")]
         public int Id { get; set; }
         [JsonPropertyName("Nombre")]
         public string Name { get; set; }

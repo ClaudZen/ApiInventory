@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Service.Util;
+using AutoMapper;
+using Api.Models.Product;
 
 namespace Api.Controllers
 {
@@ -19,18 +21,22 @@ namespace Api.Controllers
 
         private readonly ILogger<ProductController> _logger;
         private readonly IRepositoryWrapper _repositoryWrapper ;
+        private readonly IMapper _mapper;
 
-        public ProductController(ILogger<ProductController> logger, IRepositoryWrapper repositoryWrapper)
+        public ProductController(ILogger<ProductController> logger,
+            IRepositoryWrapper repositoryWrapper,
+            IMapper mapper)
         {
             _logger = logger;
             _repositoryWrapper = repositoryWrapper;
+            _mapper = mapper;
         }
 
-        [HttpGet]
-        public IEnumerable<Product> Get()
+        [HttpGet("list")]
+        public IEnumerable<ProductListViewModel> GetList()
         {
-            var model = _repositoryWrapper.Product.GetAllProductsByState(GeneralState.ENABLED);
-            return model;
+            var result = _repositoryWrapper.Product.GetAllProductsByState(GeneralState.ENABLED);
+            return _mapper.Map<IEnumerable<ProductListViewModel>>(result);
         }
 
 

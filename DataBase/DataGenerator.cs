@@ -28,11 +28,11 @@ namespace DataBase
 
             var products = new Product[]
             {
-                    new Product{Id=1,Name="MX1000",Price=5000,State=ENABLED,RegistrationDate=new DateTime(),Category=categories[1] },
-                    new Product{Id=2,Name="MX2000",Price=9000,State=ENABLED,RegistrationDate=new DateTime() ,Category=categories[1]},
-                    new Product{Id=3,Name="PH1000",Price=4000,State=ENABLED,RegistrationDate=new DateTime(), Category=categories[3]},
-                    new Product{Id=4,Name="PH2000",Price=9000,State=DISABLED,RegistrationDate=new DateTime(), Category=categories[3]},
-                    new Product{Id=5,Name="PH3000",Price=15000,State=ENABLED,RegistrationDate=new DateTime() ,Category=categories[3]}
+                    new Product{Id=1,Name="MX1000",Price=5000,State=ENABLED,RegistrationDate=new DateTime(),Category=categories[1],Order=1 },
+                    new Product{Id=2,Name="MX2000",Price=9000,State=ENABLED,RegistrationDate=new DateTime() ,Category=categories[1],Order=2},
+                    new Product{Id=3,Name="PH1000",Price=4000,State=ENABLED,RegistrationDate=new DateTime(), Category=categories[3],Order=3},
+                    new Product{Id=4,Name="PH2000",Price=9000,State=DISABLED,RegistrationDate=new DateTime(), Category=categories[3],Order=4},
+                    new Product{Id=5,Name="PH3000",Price=15000,State=ENABLED,RegistrationDate=new DateTime() ,Category=categories[3],Order=5}
             };
 
 

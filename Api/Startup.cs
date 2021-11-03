@@ -14,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Api.ProfilesAutoMapper;
 
 namespace Api
 {
@@ -32,8 +34,18 @@ namespace Api
 
             services.AddDbContext<ApplicationContext>(opt =>
                                            opt.UseInMemoryDatabase("ApplicationContext"));
+            services.AddAutoMapper(typeof(Startup));
 
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new CategoryProfile());
+                mc.AddProfile(new ProductProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

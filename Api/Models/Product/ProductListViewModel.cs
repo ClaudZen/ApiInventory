@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace DataBase.Entities
+namespace Api.Models.Product
 {
-    public class Product
+    public class ProductListViewModel
     {
-        [Key]
+        [JsonPropertyName("Id")]
         public int Id { get; set; }
-        [StringLength(10)]
+        [JsonPropertyName("Estado")]
         public string State { get; set; }
-        [Required]
+        [JsonPropertyName("Fecha_creacion")]
         public DateTime RegistrationDate { get; set; }
-
+        [JsonPropertyName("Nombre")]
         public string Name { get; set; }
+        [JsonPropertyName("Precio")]
         public int Price { get; set; }
-        public int Order { get; set; }
-
-        #region many to one
-        public Category Category { get; set; }
-        #endregion
     }
 }
