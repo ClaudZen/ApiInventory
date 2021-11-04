@@ -39,6 +39,13 @@ namespace Api.Controllers
             return _mapper.Map<IEnumerable<ProductListViewModel>>(result);
         }
 
+        [HttpGet("select")]
+        public IEnumerable<ProductSelectViewModel> GetDataSelect()
+        {
+            var result = _repositoryWrapper.Product.GetAllProductsByState(GeneralState.ENABLED);
+            return _mapper.Map<IEnumerable<ProductSelectViewModel>>(result);
+        }
+
 
     }
 }
