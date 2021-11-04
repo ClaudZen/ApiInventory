@@ -9,7 +9,7 @@ namespace Api.Models.Product
 {
     public class ProductSelectViewModel
     {
-        [JsonPropertyName("Precio")]
+        [JsonPropertyName("Id")]
         public int Id { get; set; }
         [JsonPropertyName("Nombre")]
         public string Name { get; set; }
