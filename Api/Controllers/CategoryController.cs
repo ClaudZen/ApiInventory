@@ -17,14 +17,14 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class CategoryController : ControllerBase
     {
-      
+
 
         private readonly ILogger<CategoryController> _logger;
-        private readonly IRepositoryWrapper _repositoryWrapper ;
+        private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly IMapper _mapper;
 
-        public CategoryController(ILogger<CategoryController> logger, 
-            IRepositoryWrapper repositoryWrapper, 
+        public CategoryController(ILogger<CategoryController> logger,
+            IRepositoryWrapper repositoryWrapper,
             IMapper mapper)
         {
             _logger = logger;
@@ -36,7 +36,14 @@ namespace Api.Controllers
         public IEnumerable<CategoryListViewModel> GetList()
         {
             var result = _repositoryWrapper.Category.GetAllCategoriesByState(GeneralState.ENABLED);
-            return _mapper.Map<IEnumerable<CategoryListViewModel>>(result) ;
+            return _mapper.Map<IEnumerable<CategoryListViewModel>>(result);
+        }
+
+        [HttpGet("select")]
+        public IEnumerable<CategorySelectViewModel> GetDataSelect()
+        {
+            var result = _repositoryWrapper.Category.GetAllCategoriesByState(GeneralState.ENABLED);
+            return _mapper.Map<IEnumerable<CategorySelectViewModel>>(result);
         }
 
 
