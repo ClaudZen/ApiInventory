@@ -35,6 +35,7 @@ namespace Api.Controllers
         [HttpGet("list")]
         public IEnumerable<ProductListViewModel> GetList()
         {
+            _logger.Log(LogLevel.Information, "Product/list");
             var result = _repositoryWrapper.Product.GetAllProductsByState(GeneralState.ENABLED);
             return _mapper.Map<IEnumerable<ProductListViewModel>>(result);
         }
@@ -42,6 +43,7 @@ namespace Api.Controllers
         [HttpGet("select")]
         public IEnumerable<ProductSelectViewModel> GetDataSelect()
         {
+            _logger.Log(LogLevel.Information, "Product/list");
             var result = _repositoryWrapper.Product.GetAllProductsByState(GeneralState.ENABLED);
             return _mapper.Map<IEnumerable<ProductSelectViewModel>>(result);
         }

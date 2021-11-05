@@ -35,6 +35,7 @@ namespace Api.Controllers
         [HttpGet("list")]
         public IEnumerable<CategoryListViewModel> GetList()
         {
+            _logger.Log(LogLevel.Information, "Category/list");
             var result = _repositoryWrapper.Category.GetAllCategoriesByState(GeneralState.ENABLED);
             return _mapper.Map<IEnumerable<CategoryListViewModel>>(result);
         }
@@ -42,6 +43,7 @@ namespace Api.Controllers
         [HttpGet("select")]
         public IEnumerable<CategorySelectViewModel> GetDataSelect()
         {
+            _logger.Log(LogLevel.Information, "Category/select");
             var result = _repositoryWrapper.Category.GetAllCategoriesByState(GeneralState.ENABLED);
             return _mapper.Map<IEnumerable<CategorySelectViewModel>>(result);
         }

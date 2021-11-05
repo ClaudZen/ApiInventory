@@ -11,8 +11,8 @@ namespace DataBase
 {
     public class DataGenerator
     {
-        public const string ENABLED = "Habilitado";
-        public const string DISABLED = "Deshabilitado";
+        protected const string ENABLED = "Habilitado";
+        protected const string DISABLED = "Deshabilitado";
 
         public static void Initialize(IServiceProvider serviceProvider)
         {

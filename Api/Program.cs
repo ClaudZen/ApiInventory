@@ -13,6 +13,10 @@ namespace Api
 {
     public class Program
     {
+        protected Program()
+        {
+            
+        }
         public static void Main(string[] args)
         {
            
@@ -24,7 +28,6 @@ namespace Api
             {
                 //3. Get the instance of BoardGamesDBContext in our services layer
                 var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<ApplicationContext>();
 
                 //4. Call the DataGenerator to create sample data
                 DataGenerator.Initialize(services);
